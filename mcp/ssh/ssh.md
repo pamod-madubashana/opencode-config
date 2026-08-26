@@ -1,26 +1,26 @@
 # SSH MCP Server
 
-SSH MCP server for remote host management via [blakerouse/ssh-mcp](https://github.com/blakerouse/ssh-mcp).
+SSH MCP server for remote host management via [0FL01/SeSSHion](https://github.com/0FL01/SeSSHion).
 
 ## Installation
 
 ### Download Binary
 
-Download the latest release for your OS from [GitHub Releases](https://github.com/blakerouse/ssh-mcp/releases):
+Download the latest release for your OS from [GitHub Releases](https://github.com/0FL01/SeSSHion/releases):
 
 | OS | File |
 |----|------|
-| Windows | `ssh-mcp_windows_amd64.exe` |
-| Linux | `ssh-mcp_linux_amd64` |
-| macOS | `ssh-mcp_darwin_amd64` |
+| Windows | `ssh-mcp-windows-x86_64.exe` |
+| Linux | `ssh-mcp-linux-x86_64` |
+| macOS | `ssh-mcp-macos-x86_64` |
 
 Rename to `ssh-mcp.exe` (Windows) or `ssh-mcp` (Linux/macOS) and place in a directory in your PATH.
 
 ### Build from Source
 
 ```bash
-git clone https://github.com/blakerouse/ssh-mcp
-cd ssh-mcp
+git clone https://github.com/0FL01/SeSSHion
+cd SeSSHion
 go build .
 ```
 
