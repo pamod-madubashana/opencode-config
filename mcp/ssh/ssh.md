@@ -16,14 +16,6 @@ Download the latest release for your OS from [GitHub Releases](https://github.co
 
 Rename to `ssh-mcp.exe` (Windows) or `ssh-mcp` (Linux/macOS) and place in a directory in your PATH.
 
-### Build from Source
-
-```bash
-git clone https://github.com/0FL01/SeSSHion
-cd SeSSHion
-go build .
-```
-
 ## Configuration
 
 Add to your `opencode.json`:
