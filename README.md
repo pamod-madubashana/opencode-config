@@ -9,6 +9,7 @@ MCP server configurations for OpenCode.
 | GitHub | GitHub API integration | [mcp/github/github.md](mcp/github/github.md) |
 | Playwright | Browser automation | [mcp/playwright/playwright.md](mcp/playwright/playwright.md) |
 | SSH | Remote host management | [mcp/ssh/ssh.md](mcp/ssh/ssh.md) |
+| WSL | WSL command execution | [mcp/wsl/wsl.md](mcp/wsl/wsl.md) |
 
 ## Quick Start
 
