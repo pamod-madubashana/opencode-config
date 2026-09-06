@@ -7,10 +7,51 @@ OpenCode multi-agent architecture, MCP servers, tools, and skills.
 ```
 agents/          Multi-agent system (orchestrator, specialists, reviewers)
 tools/           Custom TypeScript tools (code navigation, wiki search)
-scripts/         Python/shell implementations for tools
-rules/           Session rules (git workflow, token efficiency)
-skills/          Reusable skills (updater, wiki-ingest, wiki-lint)
+scripts/         Install scripts and tool implementations
+rules/           Session rules (git workflow, token efficiency, auto-install)
+skills/          Reusable skills (cotrex, graphify, tokex, updater, wiki)
 mcp/             MCP server configurations
+```
+
+## Quick Start
+
+```bash
+# 1. Install all tools (RTK, Graphify, Cotrex)
+bash scripts/setup.sh --all
+
+# 2. Copy config files
+cp opencode.example.json ~/.config/opencode/opencode.json
+cp -R agents/ ~/.config/opencode/agents/
+cp -R tools/ ~/.config/opencode/tools/
+cp -R scripts/ ~/.config/opencode/scripts/
+cp -R rules/ ~/.config/opencode/rules/
+cp -R skills/ ~/.config/opencode/skills/
+
+# 3. Setup hooks
+rtk init -g --opencode      # RTK auto-rewrite
+graphify install --platform opencode  # Graphify skill
+cotrex init                  # Cotrex model download
+
+# 4. Restart OpenCode
+```
+
+## Required Tools
+
+Agents auto-install these tools if missing. Install manually or let the `auto-install-tools` rule handle it.
+
+| Tool | Version | Install | Purpose |
+|------|---------|---------|---------|
+| **RTK** | 0.42+ | `bash scripts/install-rtk.sh` | CLI proxy, cuts 60-90% of bash output |
+| **Graphify** | 0.9+ | `bash scripts/install-graphify.sh` | Turn codebases into queryable knowledge graphs |
+| **Cotrex** | 3.0+ | `bash scripts/install-cotrex.sh` | Deterministic execution orchestration |
+
+### Install scripts
+
+```bash
+bash scripts/setup.sh --all       # Install everything
+bash scripts/setup.sh --rtk       # Install RTK only
+bash scripts/setup.sh --graphify  # Install Graphify only
+bash scripts/setup.sh --cotrex    # Install Cotrex only
 ```
 
 ## Agents
@@ -54,9 +95,20 @@ mcp/             MCP server configurations
 
 | Skill | Purpose |
 |-------|---------|
+| **cotrex** | RTK orchestration (MCP + CLI fallback) |
+| **graphify** | Knowledge graph from codebases |
+| **tokex** | Alternative RTK orchestration |
 | **updater** | Self-update apps via GitHub Releases |
 | **wiki-ingest** | Add PRs to the project wiki |
 | **wiki-lint** | Check wiki health and conformance |
+
+## Rules
+
+| Rule | Purpose |
+|------|---------|
+| `git-workflow` | Run check after edits, imperative commits |
+| `token-efficiency` | Use skeleton/impact/which_test, prefer native tools |
+| `auto-install-tools` | Auto-install missing tools (RTK, Graphify, Cotrex) |
 
 ## MCP Servers
 
@@ -67,18 +119,12 @@ mcp/             MCP server configurations
 | SSH | Remote host management | [mcp/ssh/ssh.md](mcp/ssh/ssh.md) |
 | WSL | WSL command execution | [mcp/wsl/wsl.md](mcp/wsl/wsl.md) |
 
-## Quick Start
-
-1. Copy `opencode.example.json` to `~/.config/opencode/opencode.json`
-2. Merge with your existing config (don't overwrite MCP/LSP/plugin settings)
-3. Copy `agents/`, `tools/`, `scripts/`, `rules/` to `~/.config/opencode/`
-4. Copy `skills/` to `~/.config/opencode/skills/`
-5. Replace `YOUR_FAST_MODEL` in `opencode.json` with your model ID
-6. Restart OpenCode
-
 ## Verify
 
 ```bash
 opencode models    # Confirm model IDs resolve
 opencode mcp list  # Confirm MCP servers
+rtk --version      # RTK installed
+graphify --version # Graphify installed
+cotrex --version   # Cotrex installed
 ```
