@@ -35,6 +35,24 @@ cotrex init                  # Cotrex model download
 # 4. Restart OpenCode
 ```
 
+Windows (PowerShell):
+
+```powershell
+# 1. Install all tools (RTK, Graphify, Cotrex)
+powershell -ExecutionPolicy Bypass -File scripts/setup.ps1 -All
+
+# 2. Copy config files
+Copy-Item opencode.example.json ~/.config/opencode/opencode.json
+Copy-Item -Recurse agents/, tools/, scripts/, rules/, skills/ ~/.config/opencode/
+
+# 3. Setup hooks
+rtk init -g --opencode      # RTK auto-rewrite
+graphify install --platform opencode  # Graphify skill
+cotrex init                  # Cotrex model download
+
+# 4. Restart OpenCode
+```
+
 ## Required Tools
 
 Agents auto-install these tools if missing. Install manually or let the `auto-install-tools` rule handle it.
@@ -69,7 +87,9 @@ bash scripts/setup.sh --cotrex    # Install Cotrex only
 |-------|------|
 | **python-pro** | Expert Python 3.12+ developer |
 | **go-pro** | Expert Go developer |
-| **ops-specialist** | Linux systems, systemd, deployment |
+| **rust-pro** | Expert Rust 2024 developer (Cargo, Clippy, Tauri) |
+| **typescript-pro** | Expert strict TypeScript developer (ESLint, Prettier, Vitest, React) |
+| **ops-specialist** | Systems/infra specialist (Linux + Windows), deployment |
 | **wiki-curator** | Maintains project wiki (OKF v0.2) |
 
 ### Reviewers
@@ -118,6 +138,13 @@ bash scripts/setup.sh --cotrex    # Install Cotrex only
 | Playwright | Browser automation | [mcp/playwright/playwright.md](mcp/playwright/playwright.md) |
 | SSH | Remote host management | [mcp/ssh/ssh.md](mcp/ssh/ssh.md) |
 | WSL | WSL command execution | [mcp/wsl/wsl.md](mcp/wsl/wsl.md) |
+
+## Cross-Platform
+
+Hosts may run Windows (PowerShell), Linux, or macOS. All roles are OS-agnostic:
+native commands first, toolchain commands (`cargo`, `npm`, `go`, `uv`) over shell
+tricks, and never WSL/alternate shells as a workaround. Committed scripts come in
+`.sh` + `.ps1` pairs; repos keep LF line endings.
 
 ## Verify
 
