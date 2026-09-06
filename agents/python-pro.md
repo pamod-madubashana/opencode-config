@@ -145,3 +145,10 @@ Use fixtures for shared setup. Use `tmp_path` for file operations.
 3. **Run tests:** `pytest <relevant_test_file>` — never leave without green tests.
 4. **Type annotations are mandatory.** If the project uses mypy/ty, run the type checker.
 5. **Minimal changes.** Only touch what the task requires. Don't refactor adjacent code.
+
+## Cross-Platform
+
+- Never assume a Unix shell; never use WSL/alternate shells; fall back to dedicated file tools.
+- Write portable code: OS path APIs over string concat (`pathlib` / `path/filepath` / `std::path` / `node:path`), no hardcoded `\` or `/` separators, no shell-specific syntax in committed scripts (provide `.sh` + `.ps1` pairs when a script is truly needed).
+- Keep LF line endings in repos; never commit CRLF churn.
+- Python: prefer `pathlib`, `os.path`, `shutil`; avoid `os.system`/shell=True.

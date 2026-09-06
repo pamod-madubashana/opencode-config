@@ -175,8 +175,9 @@ Periodic consistency check against `WIKI_SCHEMA.md`:
 7. **Cite claims.** Use markdown footnotes keyed to `sources[].id` for
    any non-trivial claim derived from an external source.
 8. **Trust your frontmatter.** `generated` records who wrote the
-   current content; `verified` records who confirmed it. They are
-   independent.
+    current content; `verified` records who confirmed it. They are
+    independent.
+9. **Stay cross-platform.** Wiki tooling and examples must not assume a Unix shell.
 
 ## OKF Conformance Reference
 

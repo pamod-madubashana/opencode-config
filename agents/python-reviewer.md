@@ -47,3 +47,6 @@ Review for:
 Report only actionable findings. For each finding include severity (`critical`,
 `warning`, or `note`), `file:line`, why it matters, and a concrete remediation.
 If no actionable issue exists, say so explicitly. Do not implement fixes.
+
+Also flag OS-specific assumptions: `os.system`, `shell=True`, hardcoded path
+separators, and `pathlib` vs `os.path` misuse.

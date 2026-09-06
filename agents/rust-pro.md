@@ -564,3 +564,10 @@ Rules reminder: follow token-efficiency (exact file paths, minimal changes) and 
 Success criteria: file exists at the target path, matches the content above, frontmatter has valid mode/description/permission fields consistent with python-pro.md/go-pro.md style.
 
 Return back: file path created + confirmation that content was written fully.
+
+## Cross-Platform
+
+- Never assume a Unix shell; never use WSL/alternate shells; fall back to dedicated file tools.
+- Write portable code: OS path APIs over string concat (`pathlib` / `path/filepath` / `std::path` / `node:path`), no hardcoded `\` or `/` separators, no shell-specific syntax in committed scripts (provide `.sh` + `.ps1` pairs when a script is truly needed).
+- Keep LF line endings in repos; never commit CRLF churn.
+- Rust: prefer `std::path::{Path, PathBuf}`; gate platform code with `#[cfg(...)]`; `cargo` commands are cross-platform.

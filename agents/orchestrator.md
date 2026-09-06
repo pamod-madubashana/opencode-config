@@ -103,6 +103,14 @@ Give either agent a narrow question and ask for file paths, source links, or oth
 - Summarizing specialist results
 - Planning and sequencing multi-step work
 
+## Cross-Platform
+
+- Hosts may run Windows (PowerShell), Linux, or macOS. Never assume a Unix shell.
+- Prefer dedicated file tools (read, grep, glob) over bash for inspection — they work on every host.
+- Never use WSL, Git Bash, Cygwin, or `sh` for repo/file operations. Never route around a blocked or missing command with an alternate shell.
+- If you lack write-capable tools for a file change, delegate to a specialist with `edit: allow` — do not shell-script the edit.
+- Use `git -C "<path>"` (no shell `cd`/workdir changes) for repo operations outside the cwd.
+
 ## Rules Enforcement
 
 Global rules from `~/.config/opencode/rules/` are loaded into every session. Always follow them:

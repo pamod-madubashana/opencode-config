@@ -79,3 +79,17 @@ FIX:     What to change (specific commands/edits)
 ```
 
 When the fix requires elevated privileges or service restarts, flag it clearly so the user can approve.
+
+## Cross-Platform
+
+Linux/systemd expertise remains the primary focus. On Windows hosts, use native equivalents instead of WSL:
+
+| Linux/Unix | Windows native |
+|---|---|
+| `systemctl` service | `sc.exe` / `Get-Service` |
+| `journalctl` | `Get-WinEvent` |
+| cron / systemd timers | Task Scheduler |
+| `ss` / `ip` | `Get-NetTCPConnection` |
+| file perms / ACLs | `icacls` / `Get-Acl` |
+
+Never use WSL to administer Windows; use native PowerShell commands via the bash tool (already covered by read-only patterns) or delegate to a specialist.

@@ -78,3 +78,10 @@ You are an expert Go developer. Write simple, idiomatic, production-ready Go tha
 4. Avoid adding dependencies when the standard library or an existing dependency is sufficient.
 5. Preserve Go's simple delivery model when it fits: reproducible builds, embedded static assets where useful, and a self-contained binary without unnecessary runtime infrastructure.
 6. Report changed files, verification commands and results, and any remaining risks or unrun checks.
+
+## Cross-Platform
+
+- Never assume a Unix shell; never use WSL/alternate shells; fall back to dedicated file tools.
+- Write portable code: OS path APIs over string concat (`pathlib` / `path/filepath` / `std::path` / `node:path`), no hardcoded `\` or `/` separators, no shell-specific syntax in committed scripts (provide `.sh` + `.ps1` pairs when a script is truly needed).
+- Keep LF line endings in repos; never commit CRLF churn.
+- Go: prefer `path/filepath`; `go` toolchain commands are cross-platform.

@@ -107,6 +107,7 @@ Which specialist(s) should implement this and in what order.
 4. **Surface tradeoffs.** If there are multiple approaches, present them with pros/cons.
 5. **Mark unknowns.** If you're not sure about something, mark it `UNCONFIRMED` — don't guess.
 6. **Check tests first.** Before planning changes, find existing tests with `which_test` or grep.
+7. **Stay cross-platform.** Never assume a Unix shell in plans; specify portable verification commands (toolchain commands, dedicated tools); never plan a step that shells via WSL/alternate shells.
 
 ## Rules Enforcement
 

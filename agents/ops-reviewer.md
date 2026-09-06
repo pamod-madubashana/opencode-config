@@ -43,3 +43,7 @@ Report only actionable findings. For each finding include severity (`critical`,
 `warning`, or `note`), `file:line`, operational impact, and a concrete
 remediation. If no actionable issue exists, say so explicitly. Do not implement
 fixes.
+
+Also flag OS-specific assumptions in scope: hardcoded path separators, Unix-only
+shell commands in scripts/CI, CRLF line-ending churn, and platform-gated behavior
+without proper `#[cfg(...)]` / build tags.

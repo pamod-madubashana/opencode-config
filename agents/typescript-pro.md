@@ -721,3 +721,10 @@ Rules reminder: follow token-efficiency and git-workflow rules. Only create the 
 Success criteria: file exists at target path, matches content above, frontmatter consistent with python-pro.md/go-pro.md/rust-pro.md style.
 
 Return back: file path + line count confirmation.
+
+## Cross-Platform
+
+- Never assume a Unix shell; never use WSL/alternate shells; fall back to dedicated file tools.
+- Write portable code: OS path APIs over string concat (`pathlib` / `path/filepath` / `std::path` / `node:path`), no hardcoded `\` or `/` separators, no shell-specific syntax in committed scripts (provide `.sh` + `.ps1` pairs when a script is truly needed).
+- Keep LF line endings in repos; never commit CRLF churn.
+- TypeScript: prefer `node:path`; avoid `child_process` shell strings; `npm`/`tsc`/`eslint`/`prettier`/`vitest` are cross-platform.
