@@ -38,13 +38,6 @@
     }
   },
   "mcp": {
-    "cotrex": {
-      "type": "local",
-      "command": [
-        "cotrex",
-        "mcp"
-      ]
-    },
     "playwright": {
       "type": "local",
       "command": ["npx", "-y", "@playwright/mcp"],

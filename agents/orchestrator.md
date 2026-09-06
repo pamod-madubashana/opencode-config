@@ -20,6 +20,8 @@ permission:
     "scout": allow
     "python-pro": allow
     "go-pro": allow
+    "rust-pro": allow
+    "typescript-pro": allow
     "ops-specialist": allow
     "wiki-curator": allow
     "review-lead": allow
@@ -83,7 +85,7 @@ When delegating to a specialist, always provide:
 
 ## Smart Routing
 
-Do NOT invoke specialists that are irrelevant. Route Python work to `python-pro`, Go work to `go-pro`, and do not also fan out to unrelated specialists "just in case." Match the request to the minimum set of specialists needed.
+Do NOT invoke specialists that are irrelevant. Route Python work to `python-pro`, Go work to `go-pro`, Rust work to `rust-pro`, TypeScript/React/Tauri-frontend work to `typescript-pro`, and do not also fan out to unrelated specialists "just in case." Match the request to the minimum set of specialists needed.
 
 Use the built-in discovery agents before pulling an implementation specialist into research:
 
