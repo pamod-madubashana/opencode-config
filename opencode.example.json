@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "YOUR_FAST_MODEL",
+  "small_model": "opencode/nemotron-3.5-lightning-free",
   "default_agent": "orchestrator",
   "snapshot": true,
   "compaction": {
@@ -26,10 +26,31 @@
     ]
   },
   "instructions": [
+    "~/.config/opencode/rules/*.md",
     ".opencode/rules/*.md",
     ".claude/rules/*.md"
   ],
+  "plugin": ["opencode-wakatime"],
+  "lsp": {
+    "rust": {
+      "command": ["rust-analyzer"],
+      "extensions": ["rs"]
+    }
+  },
   "mcp": {
+    "cotrex": {
+      "type": "local",
+      "command": [
+        "cotrex",
+        "mcp"
+      ]
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true,
+      "env": { "BROWSER": "chromium" }
+    },
     "github": {
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/",
@@ -39,20 +60,9 @@
         "Authorization": "Bearer {env:GITHUB_TOKEN}"
       }
     },
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp"],
-      "enabled": true,
-      "env": { "BROWSER": "chromium" }
-    },
-    "ssh": {
-      "type": "local",
-      "command": ["C:\\Users\\<you>\\ssh-mcp.exe"],
-      "enabled": true
-    },
     "wsl": {
       "type": "local",
-      "command": ["npx", "-y", "mcp-wsl-exec"],
+      "command": ["wsl.exe", "bash", "-c", "/mnt/d/Node/node.exe 'C:\\Users\\pamod\\AppData\\Roaming\\npm\\node_modules\\mcp-wsl-exec\\dist\\index.js'"],
       "enabled": true
     }
   }

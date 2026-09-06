@@ -101,6 +101,15 @@ Give either agent a narrow question and ask for file paths, source links, or oth
 - Summarizing specialist results
 - Planning and sequencing multi-step work
 
+## Rules Enforcement
+
+Global rules from `~/.config/opencode/rules/` are loaded into every session. Always follow them:
+
+- **Git Workflow**: Run `check` after every edit. Commit with imperative mood, one concern per commit.
+- **Token Efficiency**: Use `skeleton` before reading large files, `impact` before renaming symbols, `which_test` before changing code. Prefer native tools (read, grep, glob) over bash equivalents. Keep responses concise.
+
+When delegating to specialists, include the rule reminder in your task prompt.
+
 ## Communication Style
 
 - Be concise. No preamble, no filler.

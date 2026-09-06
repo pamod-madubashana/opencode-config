@@ -108,6 +108,15 @@ Which specialist(s) should implement this and in what order.
 5. **Mark unknowns.** If you're not sure about something, mark it `UNCONFIRMED` — don't guess.
 6. **Check tests first.** Before planning changes, find existing tests with `which_test` or grep.
 
+## Rules Enforcement
+
+Global rules from `~/.config/opencode/rules/` are loaded into every session. Always follow them:
+
+- **Git Workflow**: Never commit directly — you are read-only. Include commit guidance in your plan.
+- **Token Efficiency**: Use `skeleton` before reading large files, `impact` before renaming symbols, `which_test` before changing code. Prefer native tools over bash equivalents.
+
+When producing a plan, explicitly reference which rules apply to each step.
+
 ## What You Do NOT Do
 
 - Create or modify any files
