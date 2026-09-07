@@ -22,7 +22,7 @@ permission:
     "find *": allow
     "wc *": allow
   task: deny
-  skill: deny
+  skill: allow
   webfetch: deny
   websearch: deny
   external_directory: deny

@@ -57,6 +57,22 @@
       "type": "local",
       "command": ["wsl.exe", "bash", "-c", "/mnt/d/Node/node.exe 'C:\\Users\\pamod\\AppData\\Roaming\\npm\\node_modules\\mcp-wsl-exec\\dist\\index.js'"],
       "enabled": true
+    },
+    "snyk": {
+      "type": "local",
+      "command": ["npx", "-y", "snyk@^1.1296.2", "mcp", "-t", "stdio", "--experimental"],
+      "enabled": true
+    },
+    "postman": {
+      "type": "local",
+      "command": ["npx", "-y", "@smithery/cli", "run", "postman-api-server"],
+      "enabled": false,
+      "env": { "POSTMAN_API_KEY": "{env:POSTMAN_API_KEY}" }
+    },
+    "burp": {
+      "type": "remote",
+      "url": "http://127.0.0.1:9876",
+      "enabled": false
     }
   }
 }

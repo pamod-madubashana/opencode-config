@@ -25,7 +25,7 @@ permission:
     "grep *": allow
     "find *": allow
   task: deny
-  skill: deny
+  skill: allow
   webfetch: deny
   websearch: deny
   external_directory: deny

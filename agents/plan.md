@@ -22,7 +22,7 @@ permission:
     "python3 *which_test*": allow
     "python3 *ghost*": allow
   task: deny
-  skill: deny
+  skill: allow
   webfetch: deny
   websearch: deny
   external_directory: deny

@@ -120,6 +120,10 @@ Global rules from `~/.config/opencode/rules/` are loaded into every session. Alw
 
 When delegating to specialists, include the rule reminder in your task prompt.
 
+## Graphify + RTK
+
+If `graphify-out/graph.json` exists and the request is a codebase question, load `skill: graphify` and run `graphify query` first instead of manual reads. Prefer the `rtk` wrapper for shell commands when available; fall back to raw shell only if `rtk` is missing.
+
 ## Communication Style
 
 - Be concise. No preamble, no filler.
