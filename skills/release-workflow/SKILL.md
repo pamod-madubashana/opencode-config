@@ -17,7 +17,7 @@ Create a `.github/workflows/release.yml` that: (1) validates and bumps version, 
 
 ## Step 1 — Verify + Bump Version and Commit
 
-*Source: Blur release.yml (validate + bump-version jobs)*
+*Recommended approach: validate + bump-version jobs*
 
 The workflow starts with a `workflow_dispatch` input for the version string. A validate job normalizes it to semver, then a bump job updates all version files and commits.
 
@@ -79,7 +79,7 @@ jobs:
 
 ## Step 2 — Build Artifacts
 
-*Source: Blur release.yml (build job), generalized with matrix support from soundcore*
+*Recommended approach: build job with matrix support for multi-platform builds*
 
 A build job checks out the bumped commit, runs the build, and uploads artifacts. Use a matrix for multi-platform builds.
 
@@ -114,7 +114,7 @@ A build job checks out the bumped commit, runs the build, and uploads artifacts.
 
 ## Step 3 — Create GitHub Release with Notes
 
-*Source: soundcore release.yml (publish job with ncipollo/release-action)*
+*Recommended approach: publish job with ncipollo/release-action*
 
 A publish job downloads all artifacts, resolves the tag, and creates the release using `ncipollo/release-action@v1` which handles tag creation, asset upload, and release notes generation in a single step.
 
@@ -154,7 +154,7 @@ A publish job downloads all artifacts, resolves the tag, and creates the release
           token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-**Why this approach over `gh release create`:** `ncipollo/release-action@v1` handles tag creation, artifact upload, and release notes generation atomically. The Blur approach using `gh release create --generate-notes` followed by `gh release edit` to append custom sections is fragile and requires manual body manipulation.
+**Why this approach over `gh release create`:** `ncipollo/release-action@v1` handles tag creation, artifact upload, and release notes generation atomically. The alternative using `gh release create --generate-notes` followed by `gh release edit` to append custom sections is fragile and requires manual body manipulation.
 
 ---
 
