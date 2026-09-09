@@ -21,6 +21,17 @@ permission:
     "python3 *impact*": allow
     "python3 *which_test*": allow
     "python3 *ghost*": allow
+    "rtk --version": allow
+    "rtk --help": allow
+    "rtk git *": allow
+    "rtk ls *": allow
+    "rtk cat *": allow
+    "rtk head *": allow
+    "rtk tail *": allow
+    "rtk grep *": allow
+    "rtk find *": allow
+    "rtk wc *": allow
+    "rtk graphify *": allow
   task: deny
   skill: allow
   webfetch: deny
