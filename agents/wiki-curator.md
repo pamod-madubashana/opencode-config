@@ -11,16 +11,15 @@ permission:
     ".opencode/wiki/**": allow
   bash:
     "*": deny
-    "git log *": allow
-    "git diff *": allow
-    "git blame *": allow
-    "git show *": allow
     "ls *": allow
     "cat *": allow
     "head *": allow
+    "tail *": allow
     "grep *": allow
     "find *": allow
     "wc *": allow
+    "git *": allow
+    "gh *": allow
   task: deny
   skill: allow
   webfetch: deny

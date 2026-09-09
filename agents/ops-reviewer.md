@@ -9,11 +9,15 @@ permission:
   edit: deny
   bash:
     "*": deny
-    "git diff": allow
-    "git diff *": allow
-    "git show *": allow
-    "git status": allow
-    "git status *": allow
+    "git *": allow
+    "ls *": allow
+    "cat *": allow
+    "head *": allow
+    "tail *": allow
+    "grep *": allow
+    "find *": allow
+    "wc *": allow
+    "gh *": allow
   task: deny
   skill: deny
   webfetch: deny

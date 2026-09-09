@@ -8,12 +8,18 @@ permission:
   edit: deny
   bash:
     "*": deny
-    "git *": allow
+    "npx *": allow
+    "npm *": allow
+    "pip *": allow
     "ls *": allow
     "cat *": allow
     "head *": allow
+    "tail *": allow
     "grep *": allow
     "find *": allow
+    "wc *": allow
+    "git *": allow
+    "gh *": allow
   task:
     "*": deny
     "explore": allow

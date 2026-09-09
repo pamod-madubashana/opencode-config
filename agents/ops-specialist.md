@@ -10,12 +10,6 @@ permission:
   bash:
     "*": deny
     "journalctl *": allow
-    "ls *": allow
-    "cat *": allow
-    "head *": allow
-    "tail *": allow
-    "grep *": allow
-    "find *": allow
     "hostname": allow
     "whoami": allow
     "id": allow
@@ -23,6 +17,15 @@ permission:
     "ss *": allow
     "ip *": allow
     "systemctl *": ask
+    "ls *": allow
+    "cat *": allow
+    "head *": allow
+    "tail *": allow
+    "grep *": allow
+    "find *": allow
+    "wc *": allow
+    "git *": allow
+    "gh *": allow
   task: deny
   skill: allow
   webfetch: deny
