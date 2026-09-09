@@ -9,6 +9,7 @@ permission:
   edit: deny
   bash:
     "*": deny
+    "rtk *": allow
     "git *": allow
     "ls *": allow
     "cat *": allow

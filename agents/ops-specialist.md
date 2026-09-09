@@ -9,6 +9,7 @@ permission:
   edit: allow
   bash:
     "*": deny
+    "rtk *": allow
     "journalctl *": allow
     "hostname": allow
     "whoami": allow

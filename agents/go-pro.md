@@ -9,6 +9,7 @@ permission:
   edit: allow
   bash:
     "*": deny
+    "rtk *": allow
     "go *": allow
     "gofmt *": allow
     "goimports *": allow

@@ -9,6 +9,7 @@ permission:
   edit: allow
   bash:
     "*": deny
+    "rtk *": allow
     "cargo *": allow
     "rustc *": allow
     "rustfmt *": allow
@@ -197,11 +198,12 @@ fn process(user_id: u64, file_size: u64);
 Use enums for state:
 
 ```rust
-enum DownloadState {
-    Pending,
-    Downloading { received: u64 },
+enum UploadState {
+    Idle,
+    Preparing,
+    Uploading { progress: u64 },
     Completed,
-    Failed { error: DownloadError },
+    Failed { error: UploadError },
 }
 ```
 

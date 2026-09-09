@@ -8,6 +8,7 @@ permission:
   edit: deny
   bash:
     "*": deny
+    "rtk *": allow
     "npx *": allow
     "npm *": allow
     "pip *": allow

@@ -9,6 +9,7 @@ permission:
   edit: allow
   bash:
     "*": deny
+    "rtk *": allow
     "uv *": allow
     "ruff *": allow
     "pytest *": allow

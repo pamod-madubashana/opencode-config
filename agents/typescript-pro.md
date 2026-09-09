@@ -9,6 +9,7 @@ permission:
   edit: allow
   bash:
     "*": deny
+    "rtk *": allow
     "npm *": allow
     "npx *": allow
     "pnpm *": allow
