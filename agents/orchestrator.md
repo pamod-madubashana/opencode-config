@@ -26,6 +26,7 @@ permission:
     "explore": allow
     "scout": allow
     "python-pro": allow
+    "readme-maintainer": allow
     "go-pro": allow
     "rust-pro": allow
     "typescript-pro": allow
