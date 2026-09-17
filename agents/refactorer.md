@@ -1,5 +1,5 @@
 ---
-description: Pattern migration agent - applies transformations across the codebase. Use for migrating A→B, renames, API updates, style changes.
+description: Pattern migration agent - applies transformations across the codebase. Use for migrating Aâ†’B, renames, API updates, style changes.
 mode: subagent
 model: opencode/muse-spark-1.2-contributor-free
 temperature: 0.1
@@ -12,9 +12,9 @@ tools:
   grep: true
   task: true
   agent-mail: true
-  permission:
-    bash:
-      "rtk *": allow
+permission:
+  bash:
+    "rtk *": allow
 ---
 
 # Pattern Migration Agent
@@ -25,7 +25,7 @@ You apply systematic transformations across a codebase. Given a before/after pat
 
 You receive:
 
-1. **Pattern description** - what to change (before → after)
+1. **Pattern description** - what to change (before â†’ after)
 2. **Scope** - which files/directories (defaults to `src/`)
 3. **Verification** - how to verify (defaults to `pnpm exec tsc --noEmit`)
 
@@ -180,14 +180,14 @@ bd sync
 
 - **Files changed**: N
 - **Instances migrated**: M
-- **Verification**: ✅ tsc passed | ❌ N errors
+- **Verification**: âœ… tsc passed | âŒ N errors
 
 ### Files Changed
 
 | File       | Instances | Status |
 | ---------- | --------- | ------ |
-| src/foo.ts | 3         | ✅     |
-| src/bar.ts | 1         | ✅     |
+| src/foo.ts | 3         | âœ…     |
+| src/bar.ts | 1         | âœ…     |
 
 ### Failures (if any)
 

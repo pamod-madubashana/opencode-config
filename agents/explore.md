@@ -87,7 +87,7 @@ rg "import.*from" -g "!node_modules" -l      # List files only
 rg "api\.(get|post)" --type ts -A 5          # 5 lines after match
 ```
 
-### Use repo-autopsy\* When:
+### Use repo-autopsy\_\* When:
 
 - Analyzing GitHub repos (not local repos)
 - Need git statistics (hotspots, blame, history)

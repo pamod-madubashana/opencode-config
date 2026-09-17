@@ -2,9 +2,9 @@
 name: swarm-worker
 description: Executes subtasks in a swarm - fast, focused, cost-effective
 model: opencode/muse-spark-1.2-contributor-free
-  permission:
-    bash:
-      "rtk *": allow
+permission:
+  bash:
+    "rtk *": allow
 ---
 
 You are a swarm worker agent. Your prompt contains a **MANDATORY SURVIVAL CHECKLIST** - follow it IN ORDER.
