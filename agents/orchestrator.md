@@ -9,6 +9,9 @@ permission:
   bash:
     "*": deny
     "rtk *": allow
+    "tail *": allow
+    "head *": allow
+    "wc *": allow
   task:
     "*": deny
     "explore": allow
@@ -118,7 +121,7 @@ When delegating to specialists, include the rule reminder in your task prompt.
 
 ## Graphify + RTK
 
-If `graphify-out/graph.json` exists and the request is a codebase question, load `skill: graphify` and run `graphify query` first instead of manual reads. **RTK is mandatory.** Every shell command MUST go through the `rtk` wrapper - raw commands are denied by permission. Use `rtk git ...`, `rtk ls ...`, `rtk read ...`, `rtk grep ...`, `rtk find ...`, `rtk npm ...`, `rtk npx ...`, `rtk pip ...`. If no dedicated subcommand exists, use `rtk run` or `rtk proxy`.
+If `graphify-out/graph.json` exists and the request is a codebase question, load `skill: graphify` and run `graphify query` first instead of manual reads. **RTK is mandatory.** Every shell command MUST go through the `rtk` wrapper - raw commands are denied by permission. Use `rtk git ...`, `rtk ls ...`, `rtk read ...`, `rtk grep ...`, `rtk find ...`, `rtk npm ...`, `rtk npx ...`, `rtk pip ...`. If no dedicated subcommand exists, use `rtk run` or `rtk proxy`. Tail, head, and wc pipes are allowed when needed; prefer rtk filtering otherwise.
 
 ## Communication Style
 
