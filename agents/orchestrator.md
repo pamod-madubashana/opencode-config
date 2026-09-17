@@ -5,7 +5,7 @@ model: opencode/muse-spark-1.3-contributor-free
 temperature: 0.2
 steps: 30
 permission:
-  edit: deny
+  edit: allow
   bash:
     "*": deny
     "rtk *": allow
