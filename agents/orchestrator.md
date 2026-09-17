@@ -9,18 +9,6 @@ permission:
   bash:
     "*": deny
     "rtk *": allow
-    "npx *": allow
-    "npm *": allow
-    "pip *": allow
-    "ls *": allow
-    "cat *": allow
-    "head *": allow
-    "tail *": allow
-    "grep *": allow
-    "find *": allow
-    "wc *": allow
-    "git *": allow
-    "gh *": allow
   task:
     "*": deny
     "explore": allow
@@ -130,7 +118,7 @@ When delegating to specialists, include the rule reminder in your task prompt.
 
 ## Graphify + RTK
 
-If `graphify-out/graph.json` exists and the request is a codebase question, load `skill: graphify` and run `graphify query` first instead of manual reads. Prefer the `rtk` wrapper for shell commands when available; fall back to raw shell only if `rtk` is missing.
+If `graphify-out/graph.json` exists and the request is a codebase question, load `skill: graphify` and run `graphify query` first instead of manual reads. **RTK is mandatory.** Every shell command MUST go through the `rtk` wrapper - raw commands are denied by permission. Use `rtk git ...`, `rtk ls ...`, `rtk read ...`, `rtk grep ...`, `rtk find ...`, `rtk npm ...`, `rtk npx ...`, `rtk pip ...`. If no dedicated subcommand exists, use `rtk run` or `rtk proxy`.
 
 ## Communication Style
 
