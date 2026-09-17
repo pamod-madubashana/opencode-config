@@ -1,7 +1,7 @@
 ---
 description: Fast codebase exploration - read-only, no modifications. Optimized for quick searches and pattern discovery.
 mode: subagent
-model: opencode/nemotron-3.5-lightning-free
+model: opencode/muse-spark-1.3-contributor-free
 temperature: 0.1
 tools:
   bash: true
