@@ -1,0 +1,81 @@
+﻿{
+    "$schema": "https://opencode.ai/config.json",
+    "small_model": "opencode/nemotron-3.5-lightning-free",
+    "default_agent": "coordinator",
+    "snapshot": true,
+    "compaction": {
+        "auto": true,
+        "prune": true,
+        "reserved": 24000
+    },
+    "watcher": {
+        "ignore": [
+            "node_modules/**",
+            ".git/**",
+            "*.pyc",
+            "__pycache__/**",
+            ".venv/**",
+            "dist/**",
+            "build/**",
+            ".next/**",
+            ".nuxt/**",
+            "target/**",
+            "*.lock",
+            "*.min.js",
+            "*.min.css"
+        ]
+    },
+    "instructions": [
+        "~/.config/opencode/rules/*.md",
+        ".opencode/rules/*.md",
+        ".claude/rules/*.md"
+    ],
+    "plugin": [
+        "opencode-wakatime",
+        "./plugins/model-router.js",
+        "./plugins/rtk.ts"
+    ],
+    "lsp": {
+        "rust": {
+            "command": [
+                "rust-analyzer"
+            ],
+            "extensions": [
+                "rs"
+            ]
+        }
+    },
+    "mcp": {
+        "playwright": {
+            "type": "local",
+            "command": [
+                "C:\\Program Files\\nodejs\\npx.cmd",
+                "-y",
+                "@playwright/mcp"
+            ],
+            "enabled": true,
+            "environment": {
+                "BROWSER": "chromium"
+            }
+        },
+        "github": {
+            "type": "remote",
+            "url": "https://api.githubcopilot.com/mcp/",
+            "enabled": true,
+            "oauth": {
+                "clientId": "{env:GITHUB_OAUTH_CLIENT_ID}",
+                "clientSecret": "{env:GITHUB_OAUTH_CLIENT_SECRET}",
+                "scope": "repo read:org read:user"
+            }
+        },
+        "wsl": {
+            "type": "local",
+            "command": [
+                "C:\\Program Files\\nodejs\\npx.cmd",
+                "-y",
+                "mcp-wsl-exec"
+            ],
+            "enabled": false
+        }
+    }
+}
