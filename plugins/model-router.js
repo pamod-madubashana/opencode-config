@@ -15,8 +15,9 @@
 // (existing agent/small_model refs plus explicit `provider:` entries) — otherwise
 // the router would pick an unreachable model and every call would 404.
 //
-// Progress is appended to <data>/opencode/log/model-router.log because plugin
-// console output does not reach the main opencode log.
+// Progress is appended to <data>/opencode/log/model-router.log, which remains
+// the source of truth. Console output is suppressed by default to avoid a TUI
+// startup glitch; set OPENCODE_MODEL_ROUTER_VERBOSE=1 to mirror to stderr.
 
 import { readFileSync, statSync, appendFileSync } from "node:fs"
 import { homedir } from "node:os"
@@ -56,7 +57,10 @@ const logPath = () =>
     : `${homedir()}/.local/share/opencode/log/model-router.log`
 
 const log = (msg) => {
-  console.warn(`[model-router] ${msg}`)
+  const verbose = process.env.OPENCODE_MODEL_ROUTER_VERBOSE
+  if (verbose && !["0", "false", "no", "off"].includes(verbose.toLowerCase())) {
+    console.warn(`[model-router] ${msg}`)
+  }
   try {
     appendFileSync(logPath(), `[${new Date().toISOString()}] ${msg}\n`)
   } catch {
